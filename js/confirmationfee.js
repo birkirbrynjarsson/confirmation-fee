@@ -16,7 +16,6 @@ $(document).ready(function () {
 });
 
 function changeCurrency(currency) {
-    console.log("CHANGING THE CURRENCY!")
     $('#currencyInputValue').val(currency.cur);
     $('#md5InputValue').val(currency.md5);
     $('#descriptionInputValue').val(currency.description);
@@ -31,23 +30,22 @@ function onLoadUpdateForm() {
     var url_string = window.location.href;
     var url = new URL(url_string);
     var currency = url.searchParams.get("cur").toLowerCase();
-    if(currency){
-        console.log(currency);
-        if(currency === "isk"){
+    if (currency) {
+        if (currency === "isk") {
             $("#currencyRadiosISK").attr('checked', true);
             changeCurrency(isk);
         }
-        else if(currency === "usd"){
+        else if (currency === "usd") {
             $("#currencyRadiosUSD").attr('checked', true);
             changeCurrency(usd);
         }
-        else if(currency === "eur"){
+        else if (currency === "eur") {
             $("#currencyRadiosEUR").attr('checked', true);
             changeCurrency(eur);
         }
     }
     var amount = url.searchParams.get("amount");
-    if(amount){
+    if (amount) {
         changeAmount(amount);
     }
 } 
